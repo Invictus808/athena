@@ -12,4 +12,4 @@ services:
             - 8000:5000
         environment:
             - APP_SETTINGS=api.configurations.DevelopmentConfiguration
-            - FLASK_ENV=development 
+            - FLASK_ENV=development
