@@ -60,6 +60,7 @@ jobs:
             -
                 name: Coverage of Pytest
                 run: |
+                    cd src/main/resources/
                     python -m pytest ../../tests/ -p no:warnings --cov=api
 
 
