@@ -23,6 +23,7 @@ WORKDIR /app
 
 # Add application
 COPY ./src/main/resources/. .
+COPY ./requirements.txt .
 
 # Change file permissions
 RUN chown athena-api:athena-api -R /app \
