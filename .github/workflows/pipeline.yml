@@ -91,4 +91,4 @@ jobs:
                 uses: docker/build-push-action@v2
                 with:
                     push: true
-                    tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:SNAPSHOT
+                    tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:SNAPSHOT
