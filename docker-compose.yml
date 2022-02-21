@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./src/main/resources/.:/app
+            - ./src/tests/resources/.:/tests
+        ports:
+            - 8000:5000
+        environment:
+            - APP_SETTINGS=api.configurations.DevelopmentConfiguration
+            - FLASK_ENV=development 
