@@ -46,13 +46,7 @@ jobs:
                     isort src
 
             -
-                name: Test with Pytest
-                run: |
-                    python -m pytest ../../tests/
-                working-directory: src/main/resources/
-
-            -
-                name: Coverage of Pytest
+                name: Test and coverage of Pytest
                 run: |
                     python -m pytest ../../tests/ -p no:warnings --cov=api
                 working-directory: src/main/resources/
