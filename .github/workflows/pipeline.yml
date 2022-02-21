@@ -23,12 +23,6 @@ jobs:
                     python-version: "3.9"
 
             -
-                name: Environment checks
-                run: |
-                    pwd
-                    python -V
-
-            -
                 name: Install dependencies
                 run: |
                     python -m pip install --upgrade pip
@@ -54,14 +48,14 @@ jobs:
             -
                 name: Test with Pytest
                 run: |
-                    cd src/main/resources/
                     python -m pytest ../../tests/
+                working-directory: src/main/resources/
 
             -
                 name: Coverage of Pytest
                 run: |
-                    cd src/main/resources/
                     python -m pytest ../../tests/ -p no:warnings --cov=api
+                working-directory: src/main/resources/
 
 
     # Build and Push Container Job
