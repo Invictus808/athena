@@ -66,6 +66,8 @@ jobs:
 
     # Build and Push Container Job
     build-and-push:
+        needs: test
+
         runs-on: ubuntu-latest
 
         steps:
