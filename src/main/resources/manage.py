@@ -46,4 +46,4 @@ def main(**kwargs) -> None:
 if __name__ == "__main__":
     main(debug=not api_configurations["production"])
 else:
-    logger.error(f"{__file__} cannot be imported as a module")
+    logger.error(f"{__file__} cannot be imported as a module.")
