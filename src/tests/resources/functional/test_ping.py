@@ -7,7 +7,6 @@ functional/test_ping.py:
 """
 
 
-# Built-in imports
 import json
 
 
