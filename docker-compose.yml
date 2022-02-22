@@ -6,8 +6,9 @@ services:
             context: .
             dockerfile: Dockerfile
         volumes:
-            - ./src/main/resources/.:/app
-            - ./src/tests/resources/.:/tests
+            - ./src/main/resources/.:/app/.
+            - ./src/tests/resources/.:/tests/.
+            - ./src/main/logs/.:/logs/.
         ports:
             - 8000:5000
         environment:

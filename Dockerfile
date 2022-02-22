@@ -5,7 +5,8 @@ FROM python:3.9.5-slim-buster
 RUN apt-get update \
     # && apt-get -y install netcat gcc postgresql \
     && apt-get clean \
-    && adduser --disabled-password athena-api
+    && python -m pip install --upgrade pip \
+    && useradd -ms /bin/bash athena-api
 
 # Set environment variables
 ENV PATH="$PATH:/home/athena-api/.local/bin" \
@@ -13,20 +14,24 @@ ENV PATH="$PATH:/home/athena-api/.local/bin" \
     PYTHONUNBUFFERED=1
 
 # Set working directory
-WORKDIR /tests
-
-# Add tests
-COPY ./src/tests/resources/. .
+WORKDIR /logs/
 
 # Set working directory
-WORKDIR /app
+WORKDIR /tests/
+
+# Add tests
+COPY src/tests/resources/. .
+
+# Set working directory
+WORKDIR /app/
 
 # Add application
-COPY ./src/main/resources/. .
+COPY src/main/resources/. .
 
 # Change file permissions
-RUN chown athena-api:athena-api -R /app \
-    && chown athena-api:athena-api -R /tests
+RUN chown athena-api:athena-api -R /app/ \
+    && chown athena-api:athena-api -R /tests/ \
+    && chown athena-api:athena-api -R /logs/
 
 # Run as non-root user
 USER athena-api
