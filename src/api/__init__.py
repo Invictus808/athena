@@ -14,6 +14,7 @@ import os
 import yaml
 from flask import Flask
 from flask_restx import Api
+from flask_sqlalchemy import SQLAlchemy
 
 api_configurations = yaml.safe_load(open("api.cfg", "r"))
 logging_configurations = yaml.safe_load(open("logging.cfg", "r"))
@@ -22,9 +23,9 @@ logger = logging.getLogger("base")
 
 
 # Instantiate the database
-# logger.debug('Intantiating database...')
-# database = SQLAlchemy()
-# logger.debug('Instantiated database.')
+logger.debug("Intantiating database...")
+database = SQLAlchemy()
+logger.debug("Instantiated database.")
 
 
 # Instantiate API
@@ -42,9 +43,9 @@ def create_app():
     logger.debug("Set configurations.")
 
     # Set up database with API
-    # logger.debug('Setting up database with application...')
-    # database.init_app(app)
-    # logger.debug('Set database with application.')
+    logger.debug("Setting up database with application...")
+    database.init_app(app)
+    logger.debug("Set database with application.")
 
     api = Api(
         app=app,

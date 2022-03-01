@@ -11,8 +11,9 @@ import logging
 import logging.config
 
 import yaml
-from api import create_app
 from flask.cli import FlaskGroup
+
+from api import create_app, database
 
 api_configurations = yaml.safe_load(open("api.cfg", "r"))
 logging_configurations = yaml.safe_load(open("logging.cfg", "r"))
@@ -33,6 +34,13 @@ def main(**kwargs) -> None:
     )
 
     cli = FlaskGroup(create_app=create_app)
+
+    @cli.command("recreate_database")
+    def recreate_database():
+        database.drop_all()
+        database.create_all()
+        database.session.commit()
+
     cli()
 
     logger.debug(

@@ -19,20 +19,14 @@ ENV PATH="$PATH:/home/athena-api/.local/bin" \
 WORKDIR /logs/
 
 # Set working directory
-WORKDIR /tests/
-
-# Add tests
-COPY src/tests/resources/. .
-
-# Set working directory
 WORKDIR /app/
 
 # Add application
-COPY src/main/resources/. .
+COPY requirements.txt .
+COPY src/. .
 
 # Change file permissions
 RUN chown athena-api:athena-api -R /app/ \
-    && chown athena-api:athena-api -R /tests/ \
     && chown athena-api:athena-api -R /logs/
 
 # Run as non-root user

@@ -8,6 +8,7 @@ conftest.py:
 
 
 import pytest
+
 from api import create_app
 
 

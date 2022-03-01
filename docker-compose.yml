@@ -5,12 +5,27 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        entrypoint: ["/app/entrypoint.sh"]
         volumes:
-            - ./src/main/resources/.:/app/.
-            - ./src/tests/resources/.:/tests/.
-            - ./src/main/logs/.:/logs/.
+            - ./src/.:/app/.
+            - ./logs/.:/logs/.
         ports:
             - 8000:5000
         environment:
-            - APP_SETTINGS=api.configurations.DevelopmentConfiguration
+            - FLASK_APP=src/main/resources/api/__init__.py
             - FLASK_ENV=development
+            - APP_SETTINGS=api.configurations.DevelopmentConfiguration
+            - DATABASE_URL=postgres://postgres:postgres@api-database:8453/api_dev
+            - DATABASE_TEST_URL=postgres://postgres:postgres@api-database:8453/api_test
+        depends_on:
+            - api-database
+
+    api-database:
+        build:
+            context: ./database
+            dockerfile: Dockerfile
+        ports:
+            - 8453:5432
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
