@@ -80,16 +80,9 @@ jobs:
                     password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
             -
-                name: where am i
-                run: |
-                    pwd
-                    ls -lah
-
-            -
                 name: Build and push
                 uses: docker/build-push-action@v2
                 with:
-                    file: ./src/Dockerfile
-                    context: ./src/
+                    context: ./src
                     push: true
                     tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:SNAPSHOT
