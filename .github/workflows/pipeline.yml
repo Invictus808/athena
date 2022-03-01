@@ -52,7 +52,7 @@ jobs:
             -
                 name: Test and coverage of Pytest
                 run: |
-                    python -m pytest api/tests/ -p no:warnings --cov=api
+                    pytest api/tests/ -p no:warnings --cov=api
                 working-directory: src/
 
 
@@ -84,3 +84,4 @@ jobs:
                 with:
                     push: true
                     tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:SNAPSHOT
+                working-directory: src/

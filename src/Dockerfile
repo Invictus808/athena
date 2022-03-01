@@ -20,8 +20,7 @@ WORKDIR /logs/
 WORKDIR /app/
 
 # Add application
-COPY requirements.txt .
-COPY src/. .
+COPY . .
 
 # Change file permissions
 RUN chown athena-api:athena-api -R /app/ \
