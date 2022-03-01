@@ -83,6 +83,7 @@ jobs:
                 name: where am i
                 run: |
                     pwd
+                    ls -lah
 
             -
                 name: Build and push
