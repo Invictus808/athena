@@ -83,7 +83,6 @@ jobs:
                 name: Build and push
                 uses: docker/build-push-action@v2
                 with:
-                    file: Dockerfile
                     context: ./src
                     push: true
                     tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:SNAPSHOT
