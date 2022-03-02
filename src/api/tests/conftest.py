@@ -9,7 +9,7 @@ conftest.py:
 
 import pytest
 
-from api import create_app
+from api import create_app, database
 
 
 @pytest.fixture(scope="module")
@@ -18,3 +18,11 @@ def test_app():
     app.config.from_object("api.configurations.TestingConfiguration")
     with app.app_context():
         yield app
+
+
+@pytest.fixture(scope="module")
+def test_database():
+    database.create_all()
+    yield database
+    database.session.remove()
+    database.drop_all()

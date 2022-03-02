@@ -12,11 +12,10 @@ services:
         ports:
             - 8000:5000
         environment:
-            - FLASK_APP=src/main/resources/api/__init__.py
             - FLASK_ENV=development
             - APP_SETTINGS=api.configurations.DevelopmentConfiguration
-            - DATABASE_URL=postgres://postgres:postgres@api-database:8453/api_dev
-            - DATABASE_TEST_URL=postgres://postgres:postgres@api-database:8453/api_test
+            - DATABASE_URL=postgresql://postgres:postgres@api-database:5432/api_dev
+            - DATABASE_TEST_URL=postgresql://postgres:postgres@api-database:5432/api_test
         depends_on:
             - api-database
 

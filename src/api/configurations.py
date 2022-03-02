@@ -13,6 +13,7 @@ import os
 class BaseConfiguration:
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = "secret_key"
 
 
 class DevelopmentConfiguration(BaseConfiguration):

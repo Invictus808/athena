@@ -1,3 +1,4 @@
+.dockerignore
 Dockerfile*
 
 # Byte-compiled / optimized / DLL files

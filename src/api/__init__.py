@@ -68,7 +68,7 @@ def create_app():
 
         return {
             "app": app,
-            # 'database': database,
+            "database": database,
         }
 
     return app
