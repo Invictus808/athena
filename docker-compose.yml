@@ -9,8 +9,6 @@ services:
         volumes:
             - ./src/.:/app/.
             - ./logs/.:/logs/.
-        ports:
-            - 8000:5000
         environment:
             - FLASK_ENV=development
             - APP_SETTINGS=api.configurations.DevelopmentConfiguration
@@ -20,11 +18,20 @@ services:
             - api-database
 
     api-database:
+        container_name: database
         build:
             context: ./database
             dockerfile: Dockerfile
-        ports:
-            - 8453:5432
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
+
+    nginx:
+        container_name: nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - 80:80
+        depends_on:
+            - api
