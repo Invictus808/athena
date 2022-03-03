@@ -10,6 +10,7 @@ services:
             - ./src/.:/app/.
             - ./logs/.:/logs/.
         environment:
+            - FLASK_APP=api/__init__.py
             - FLASK_ENV=development
             - APP_SETTINGS=api.configurations.DevelopmentConfiguration
             - DATABASE_URL=postgresql://postgres:postgres@api-database:5432/api_dev

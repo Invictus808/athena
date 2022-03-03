@@ -14,6 +14,7 @@ import yaml
 from flask.cli import FlaskGroup
 
 from api import create_app, database
+from api.models import User
 
 api_configurations = yaml.safe_load(open("api.cfg", "r"))
 logging_configurations = yaml.safe_load(open("logging.cfg", "r"))
