@@ -58,9 +58,10 @@ def create_app():
         default_swagger_filename="athena.json",
     )
 
-    from .endpoints import ping_endpoint
+    from .endpoints import ping_endpoint, twitch_endpoint
 
     api.add_namespace(ping_endpoint)
+    api.add_namespace(twitch_endpoint)
 
     # Shell context for the Flask CLI
     @app.shell_context_processor

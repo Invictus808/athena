@@ -53,7 +53,7 @@ jobs:
             -
                 name: Test and coverage of Pytest
                 run: |
-                    pytest api/tests/ -p no:warnings --cov=api
+                    pytest api/tests/ -p no:warnings --cov=api -k "not test_twitch"
                 working-directory: src/
 
 

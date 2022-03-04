@@ -8,5 +8,7 @@ api/endpoints/__init__.py:
 
 
 from .ping import ping_endpoint
+from .twitch import twitch_endpoint
 
 ping_endpoint = ping_endpoint
+twitch_endpoint = twitch_endpoint
