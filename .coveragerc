@@ -1,3 +1,0 @@
-[run]
-omit = src/api/tests/*
-branch = True
