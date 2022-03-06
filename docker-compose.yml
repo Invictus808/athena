@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: ./src
+            dockerfile: Dockerfile
+        entrypoint: ["/app/entrypoint.sh"]
+        volumes:
+            - ./src/.:/app/.
+            - ./logs/.:/logs/.
+        environment:
+            - FLASK_APP=api/__init__.py
+            - FLASK_ENV=development
+            - APP_SETTINGS=api.configurations.DevelopmentConfiguration
+            - DATABASE_URL=postgresql://postgres:postgres@api-database:5432/api_dev
+            - DATABASE_TEST_URL=postgresql://postgres:postgres@api-database:5432/api_test
+        depends_on:
+            - api-database
+
+    api-database:
+        container_name: database
+        build:
+            context: ./database
+            dockerfile: Dockerfile
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+
+    nginx:
+        container_name: nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - 80:80
+        depends_on:
+            - api
