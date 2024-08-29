@@ -1,8 +1,8 @@
 # Python
 
-## Install Python 3.9
+## Install Python 3.12
 ```
-sudo apt install python3.9 -y
+sudo apt install python3.12 -y
 ```
 
 ## Install pip3
@@ -10,12 +10,12 @@ sudo apt install python3.9 -y
 sudo apt install python3-pip -y
 ```
 
-## Install Python 3.9 Virtual Environment
+## Install Python 3.12 Virtual Environment
 ```
-sudo apt install python3.9-venv -y
+sudo apt install python3.12-venv -y
 ```
 
-## Using Python 3.9 Virtual Environment
+## Using Python 3 Virtual Environment
 - Create virtual environment
 ```
 python3 -m venv <virtual_environment_name>

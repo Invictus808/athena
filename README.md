@@ -1,4 +1,4 @@
-# Athena API &copy; 2021, Invictus808
+# Athena API &copy; 2024, Invictus808
 
 ## Overview
 
@@ -18,9 +18,9 @@ Athena API (application programming interface) is designed for [invictus808.com]
 
 ### Environment
 - [DigitalOcean](https://www.digitalocean.com/)
-- [Ubuntu 20.04 LTS](https://ubuntu.com/)
+- [Ubuntu 24.04 LTS](https://ubuntu.com/)
 
 ### Requirements
-- [Python 3.9](https://www.python.org/) || [README](docs/python.md)
+- [Python 3.12](https://www.python.org/) || [README](docs/python.md)
 - [Docker](https://www.docker.com/) || [README](docs/docker.md)
 - [Docker Compose](https://docs.docker.com/compose/) || [README](docs/docker.md)
