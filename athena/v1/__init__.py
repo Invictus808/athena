@@ -13,3 +13,9 @@ router = APIRouter()
 router.include_router(ping.router, prefix='/ping', tags=['ping'])
 router.include_router(website.router, prefix='/website', tags=['website'])
 router.include_router(red.router, prefix='/red', tags=['red'])
+
+
+# export router
+__all__ = [
+    'router',
+]

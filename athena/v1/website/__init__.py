@@ -21,3 +21,9 @@ router.get('/skills')(skills)
 router.get('/projects')(projects)
 router.get('/contact')(contact)
 router.get('/socials')(socials)
+
+
+# export router
+__all__ = [
+    'router',
+]

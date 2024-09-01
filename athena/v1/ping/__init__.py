@@ -9,3 +9,9 @@ router = APIRouter()
 
 # GET ping
 router.get('')(connect)
+
+
+# export router
+__all__ = [
+    'router',
+]
